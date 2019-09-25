@@ -1,0 +1,332 @@
+def atRisk(gender,points):
+    if gender.lower == "w":
+        if points < 9:
+            risk = (" less than 1%")
+        elif points <= 12:
+            risk = (" 1% ")
+        elif points <= 14:
+            risk = (" 2% ")
+        elif points == 15:
+            risk = (" 3% ")
+        elif points == 16:
+            risk = (" 4% ")
+        elif points == 17:
+            risk = (" 5% ")
+        elif points == 18:
+            risk = (" 6% ")
+        elif points == 19:
+            risk = (" 8% ")
+        elif points == 20:
+            risk = (" 11% ")
+        elif points == 21:
+            risk = (" 14% ")
+        elif points == 22:
+            risk = (" 17% ")
+        elif points == 23:
+            risk = (" 22% ")
+        elif points == 24:
+            risk = (" 27% ")
+        elif points >= 25:
+            risk = (" greater than 35% ")
+    else:
+        if points < 0:
+            risk = (" less than 1%")
+        elif points <= 4:
+            risk = (" 1% ")
+        elif points <= 6:
+            risk = (" 2% ")
+        elif points == 7:
+            risk = (" 3% ")
+        elif points == 8:
+            risk = (" 4% ")
+        elif points == 9:
+            risk = (" 5% ")
+        elif points == 10:
+            risk = (" 6% ")
+        elif points == 11:
+            risk = (" 8% ")
+        elif points == 12:
+            risk = (" 10% ")
+        elif points == 13:
+            risk = (" 12% ")
+        elif points == 14:
+            risk = (" 16% ")
+        elif points == 15:
+            risk = (" 20% ")
+        elif points == 16:
+            risk = (" 25% ")
+        elif points >= 17:
+            risk = (" greater than 35% ")
+    print("Your 10 year risk percentage is" + risk)
+def getVitals():
+    gender = input("Please enter your gender (M) men or (W) woman: ")
+    age = float(input("Please enter your age: "))
+    if age < 20:
+        float(input("This program will only work if you are older than 20 or less than 79, enter an age over 20 and less than 79: "))
+    tCholesterol = float(input("Please enter your total cholesterol: "))
+    smoker = (input("Are you a smoker? (Y or N)"))
+    hdl = float(input("Please enter your HDL: "))
+    bp = float(input("Please enter your systolic blood pressure: "))
+    treated = input("Are you currently being treated for your blood pressure (Y) yes or (N) no")
+    return age, tCholesterol, smoker, hdl, bp, treated, gender
+def calcAge(gender,age):
+    if gender.lower == "m":
+        if age < 34:
+            pointsAge = float(-9)
+        elif age < 39:
+            pointsAge = float(-4)
+        elif age < 44:
+            pointsAge = float(0)
+        elif age < 49:
+            pointsAge = float(3)
+        elif age < 54:
+            pointsAge = float(6)
+        elif age < 59:
+            pointsAge = float(8)
+        elif age < 64:
+            pointsAge = float(10)
+        elif age < 69:
+            pointsAge= float(11)
+        elif age < 74:
+            pointsAge = float(12)
+        elif age < 79:
+            pointsAge = float(13)
+    else:
+        if age < 34:
+            pointsAge = float(-7)
+        elif age < 39:
+            pointsAge = float(-3)
+        elif age < 44:
+            pointsAge = float(0)
+        elif age < 49:
+            pointsAge = float(3)
+        elif age < 54:
+            pointsAge = float(6)
+        elif age < 59:
+            pointsAge = float(8)
+        elif age < 64:
+            pointsAge = float(10)
+        elif age < 69:
+            pointsAge = float(12)
+        elif age < 74:
+            pointsAge = float(14)
+        elif age < 79:
+            pointsAge = float(16)
+    return pointsAge
+def calcChol(gender,tCholesterol,age):
+    pointsChol = 0
+    if gender.lower == "m":
+        if tCholesterol < 160:
+            pointsChol = 0
+        elif tCholesterol < 199:
+            if age < 39:
+                pointsChol = 4
+            elif age < 49:
+                pointsChol = 3
+            elif age < 59:
+                pointsChol = 2
+            elif age < 69:
+                pointsChol = 1
+            elif age < 79:
+                pointsChol = 0
+        elif tCholesterol < 239:
+            if age < 39:
+                pointsChol = 7
+            elif age < 49:
+                pointsChol = 5
+            elif age < 59:
+                pointsChol = 3
+            elif age < 69:
+                pointsChol = 1
+            elif age < 79:
+                pointsChol = 0
+        elif tCholesterol < 279:
+            if age < 39:
+                pointsChol = 9
+            elif age < 49:
+                pointsChol = 6
+            elif age < 59:
+                pointsChol = 4
+            elif age < 69:
+                pointsChol = 2
+            elif age < 79:
+                pointsChol = 1
+        elif tCholesterol >= 280:
+            if age < 39:
+                pointsChol = 11
+            elif age < 49:
+                pointsChol = 8
+            elif age < 59:
+                pointsChol = 5
+            elif age < 69:
+                pointsChol = 3
+            elif age < 79:
+                pointsChol = 1
+    else:
+        if tCholesterol < 160:
+            pointsChol = 0
+        elif tCholesterol < 199:
+            if age < 39:
+                pointsChol = 4
+            elif age < 49:
+                pointsChol = 3
+            elif age < 59:
+                pointsChol = 2
+            elif age < 69:
+                pointsChol = 1
+            elif age < 79:
+                pointsChol = 1
+        elif tCholesterol < 239:
+            if age < 39:
+                pointsChol = 8
+            elif age < 49:
+                pointsChol = 6
+            elif age < 59:
+                pointsChol = 4
+            elif age < 69:
+                pointsChol = 2
+            elif age < 79:
+                pointsChol = 1
+        elif tCholesterol < 279:
+            if age < 39:
+                pointsChol = 11
+            elif age < 49:
+                pointsChol = 8
+            elif age < 59:
+                pointsChol = 5
+            elif age < 69:
+                pointsChol = 3
+            elif age < 79:
+                pointsChol = 2
+        elif tCholesterol >= 280:
+            if age < 39:
+                pointsChol = 13
+            elif age < 49:
+                pointsChol = 10
+            elif age < 59:
+                pointsChol = 7
+            elif age < 69:
+                pointsChol = 4
+            elif age < 79:
+                pointsChol = 2
+    return (pointsChol)
+def calcSmoker(gender,smoker,age):
+    pointSmoker = 0
+    if gender.lower() == "m":
+        if smoker.lower() == "n":
+            if age < 39:
+                pointSmoker = 0
+            elif age < 49:
+                pointSmoker = 0
+            elif age < 59:
+                pointSmoker = 0
+            elif age < 69:
+                pointSmoker = 0
+            elif age < 79:
+                pointSmoker = 0
+        else:
+            if age < 39:
+                pointSmoker = 8
+            elif age < 49:
+                pointSmoker = 5
+            elif age < 59:
+                pointSmoker = 3
+            elif age < 69:
+                pointSmoker = 1
+            elif age < 79:
+                pointSmoker = 1
+    else:
+        if smoker.lower() == "n":
+            if age < 39:
+                pointSmoker = 0
+            elif age < 49:
+                pointSmoker = 0
+            elif age < 59:
+                pointSmoker = 0
+            elif age < 69:
+                pointSmoker = 0
+            elif age < 79:
+                pointSmoker = 0
+        else:
+            if age < 39:
+                pointSmoker = 9
+            elif age < 49:
+                pointSmoker = 7
+            elif age < 59:
+                pointSmoker = 4
+            elif age < 69:
+                pointSmoker = 2
+            elif age < 79:
+                pointSmoker = 1
+    return (pointSmoker)
+def calcHDL(hdl):
+    if hdl < 40:
+        pointsHDL = 2
+    elif hdl <= 49:
+        pointsHDL = 1
+    elif hdl <= 59:
+        pointsHDL = 0
+    elif hdl >= 60:
+        pointsHDL = -1
+    return(pointsHDL)
+def calcBp(gender,bp,treated):
+    if gender.lower() == "m":
+        if bp < 120:
+            pointsBp = 0
+        elif bp <= 129:
+            if treated.lower() == "y":
+                pointsBp= 1
+            else:
+                pointsBp = 0
+        elif bp <= 159:
+            if treated.lower() == "y":
+                pointsBp= 2
+            else:
+                pointsBp = 1
+        else:
+            if treated.lower() == "y":
+                pointsBp= 3
+            else:
+                pointsBp = 2
+    else:
+        if bp < 120:
+            pointsBp = 0
+        elif bp <= 129:
+            if treated.lower() == "y":
+                pointsBp= 3
+            else:
+                pointsBp = 1
+        elif bp < 139:
+            if treated.lower() == "y":
+                pointsBp = 4
+            else:
+                pointsBp = 2
+        elif bp <= 159:
+            if treated.lower() == "y":
+                pointsBp = 5
+            else:
+                pointsBp = 3
+        else:
+            if treated.lower() == "y":
+                pointsBp= 6
+            else:
+                pointsBp = 4
+    return(pointsBp)
+def calcpoints(pointsAge,pointsChol,pointsHDL,pointsBp):
+    points = 0
+    points += pointsAge
+    points += pointsChol
+    points += pointsHDL
+    points += pointsBp
+    return points
+def main():
+    (age, tCholesterol, smoker, hdl, bp, treated, gender) = getVitals()
+    points = calcpoints(calcAge(gender, age), calcChol(gender, tCholesterol, age), calcHDL(hdl), calcBp(gender,bp, treated))
+    atRisk(gender, points)
+while True:
+    main()
+    response = input("Would you like to try again? (yes or no):")
+    if response.lower() == "no":
+        print("Thank you for using this program :)")
+        break
+    print("--------------------------------------------------------------------")
