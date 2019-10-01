@@ -15,7 +15,7 @@ def reRun():
 
 #gets all the numbers the user wants to calculates
 def getNumbers():
-    amount = 0
+    inputs = 0
     tSum = 0
     max = 0
     min = 10000000000000000
@@ -27,23 +27,23 @@ def getNumbers():
             continue
         else:
             num1 = float(numString)
-        if amount == 0 and num1 < 0:
+        if inputs == 0 and num1 < 0:
            print("Please input numbers to compute an average, max, and min")
            continue
         elif num1 < 0:
             break
         else:
             tSum = num1 + tSum
-            amount = amount + 1
+            amount = inputs + 1
             if num1 > max:
                 max = num1
             if num1 < min:
                 min = num1
-    return tSum,amount,max,min
+    return tSum,inputs,max,min
 
 #calculates the average from the inputs
-def calculateAvg(tSum,amount):
-    average = tSum / amount
+def calculateAvg(tSum,inputs):
+    average = tSum / inputs
     return average
 
 #prints the values
@@ -54,7 +54,7 @@ def printValues(average, max, min):
 
 #calls on methods to run program
 while run:
-    tSum, amount, max, min = getNumbers()
-    average = calculateAvg(tSum,amount)
+    tSum, inputs, max, min = getNumbers()
+    average = calculateAvg(tSum,inputs)
     printValues(average, max, min)
     run = reRun()
