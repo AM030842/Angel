@@ -34,7 +34,7 @@ def getNumbers():
             break
         else:
             tSum = num1 + tSum
-            amount = inputs + 1
+            inputs = inputs + 1
             if num1 > max:
                 max = num1
             if num1 < min:
