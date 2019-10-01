@@ -27,7 +27,10 @@ def getNumbers():
             continue
         else:
             num1 = float(numString)
-        if num1 < 0:
+        if amount == 0 and num1 < 0:
+           print("Please input numbers to compute an average, max, and min")
+           continue
+        elif num1 < 0:
             break
         else:
             tSum = num1 + tSum
